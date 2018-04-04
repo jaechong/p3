@@ -4,6 +4,14 @@
 
 CSCI E15 - Project 3
 ## Outside resources
+how to put background image:
+https://www.tutorialspoint.com/css/css_background-image.htm
+background image size:
+https://css-tricks.com/almanac/properties/b/background-size/
+background image source:
+https://www.nytimes.com/2017/08/07/travel/traveling-together-apps-to-help-split-and-pay-the-bills.html
+how to set default value for 'select' element
+https://stackoverflow.com/questions/3518002/how-can-i-set-the-default-value-for-an-html-select-element
 
 ## Notes for instructor
 
