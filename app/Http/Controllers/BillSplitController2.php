@@ -6,9 +6,30 @@ use Illuminate\Http\Request;
 
 class BillSplitController extends Controller
 {
-
-    public function index(Request $request)
+    public function clearOrCalculate(Request $request)
     {
+        dump($request->input('clear'));
+        dump($request->input('calculate'));
+        dump($request);
+
+        if ($request->input('calculate')) {
+            $this->calculate($request);
+        } else {
+            $this->clear($request);
+        }
+        /*
+             if(Input::get('clear'))
+             {
+                 $this->clear();
+             } elseif ($request->input('calculate'))
+             {
+                 $this->calculate($request);
+             }*/
+    }
+
+    public function clear(Request $request)
+    {
+        dump($request);
 
         return view('bills.index')->with([
             'noOfPeople' => '',
@@ -21,6 +42,10 @@ class BillSplitController extends Controller
 
     public function calculate(Request $request)
     {
+        dump($request->input('noOfPeople'));
+        dump($request->input('amount'));
+        dump($request->input('service'));
+
         $this->validate($request, [
             'noOfPeople' => 'required|numeric|min:1|max:100',
             'amount' => 'required|numeric|min:1'
@@ -42,8 +67,10 @@ class BillSplitController extends Controller
             # i.e. 1.001 -> 1.01, 1.0001 -> 1.01,
             # limitation: 1.00009 -> 1.00, but close enough
         }
+        dump($finalResult);
+        dump($request);
 
-        return view('bills.index')->with([
+        return view('bills.calculate')->with([
             'noOfPeople' => $splitBy,
             'amount' => $totalTap,
             'service' => $tipRate,

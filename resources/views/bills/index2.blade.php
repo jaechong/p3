@@ -13,7 +13,7 @@
                 <div class='col-sm-12'>
                     <p class='warning'>* required fields</p>
                 </div>
-                <form method='GET' action='/clearOrCalculate'>
+                <form method='GET' action='/calculate'>
                     <div class='panel-body form-horizontal payment-form'>
                         <div class='form-group required'>
                             <label class='col-sm-6 control-label'>* Split how many ways?</label>
@@ -22,8 +22,9 @@
                                        class='form-control' name='noOfPeople'
                                        required
                                        min='1'
-                                       {{--                                       value='{{ old('noOfPeople') }}'--}}
-                                       value='{{ $noOfPeople }}'
+                                       max='100'
+{{--                                       value='{{ old('noOfPeople') }}'--}}
+                                        value='{{ $noOfPeople }}'
                                 />
                                 @include('modules.error-field', ['field' => 'noOfPeople'])
                             </div>
@@ -34,8 +35,8 @@
                                        required
                                        step='0.01'
                                        min='1'
-                                       {{--                                       value='{{ old('amount') }}'--}}
-                                       value='{{ $amount }}'
+{{--                                       value='{{ old('amount') }}'--}}
+                                        value='{{ $amount }}'
                                 />
                                 @include('modules.error-field', ['field' => 'amount'])
 
@@ -57,15 +58,15 @@
                             <input type='checkbox'
                                    class='form-control'
                                    name='roundUp'
-                                    {{ ($roundUp) ? 'checked' : '' }}/><br/>
+                                   {{ ($roundUp) ? 'checked' : '' }}/><br/><br/>
                         </div>
-                        <div class='col-sm-4'></div> <!-- dirty way to center the button until I figure it out better way -->
+<!--                        <div class='col-sm-4'></div> <!-- dirty way to center the button until I figure it out better way -->
                         <div class='col-sm-4'>
-                            <input type='submit' value='Calculate' class='btn btn-primary brn-lg submitButton'/>
+                            <input type='submit' name='calculate' value='Calculate' class='btn btn-primary brn-lg submitButton'/>
                         </div>
                         @if($results)
                             <div class='col-sm-4'>
-                                <input type='submit' value='Clear' class='btn btn-primary brn-lg submitButton'/>
+                                <input type='submit' name='clear' value='Clear' class='btn btn-primary brn-lg submitButton'/>
                             </div>
                         @endif
                         <br/>
@@ -73,15 +74,15 @@
                 </form>
                 @if($results)
                     <div class='panel-body form-horizontal payment-form result'>
-                        @if ($noOfPeople > 1)
-                            <p class='result'>Everyone owes <em>${{ $results }}</em> each.</p>
-                        @else
-                            <p class='result'>You owe <em>${{ $results }}<em>.</p>
-                        @endif
+                    @if ($noOfPeople > 1)
+                        <p>Everyone owes <em>${{ $results }}</em> each.</p>
+                    @else
+                        <p>You owe <em>${{ $results }}<em>.</p>
+                    @endif
                     </div>
                 @else
                     <div class='panel-body form-horizontal payment-form result'>
-                        <p class='result'>Please enter the total amount and how many ways to split!</p>
+                        <p>Please enter the total amount and how many ways to split!</p>
                     </div>
                 @endif
             </div>

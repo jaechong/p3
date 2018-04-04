@@ -5,11 +5,19 @@ header {
 
 #logo {
   width: 10%  ;
+  color: white;
 }
 
 h1 {
     text-align: center;
-    font-size: 3.0rem;
+    font-size: 6.0rem;
+    color: black;
+    font-weight: bolder;
+    /*    outline-color: #0c5460;*/
+    stroke: black;
+    stroke-width: 2px;
+    outline-color: black;
+    outline-width: 2px;
 }
 
 body {
@@ -20,6 +28,7 @@ body {
 
 .btn {
     margin-top: 20px;
+    text-align: center;
 }
 
 .error {
@@ -47,6 +56,17 @@ body {
     font-style: italic;
 }
 
+.warning {
+    padding-top: 40px;
+    text-align: center;
+}
+
+.result {
+    font-size: 2.5rem;
+    text-align: center;
+    font-weight: bolder;
+    color: #0b2e13;
+}
 footer {
     text-align: center;
     background-color: #eee;

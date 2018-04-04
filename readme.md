@@ -12,7 +12,10 @@ background image source:
 https://www.nytimes.com/2017/08/07/travel/traveling-together-apps-to-help-split-and-pay-the-bills.html
 how to set default value for 'select' element
 https://stackoverflow.com/questions/3518002/how-can-i-set-the-default-value-for-an-html-select-element
-
+comments in blade.php
+https://stackoverflow.com/questions/27830200/laravel-blade-comments-blade-rendering-causing-page-to-crash
+two submit buttons in one form and have different actions
+https://stackoverflow.com/questions/20932543/laravel-4-two-submit-buttons-in-one-form-and-have-both-submits-to-be-handled-b
 ## Notes for instructor
 
 # p3

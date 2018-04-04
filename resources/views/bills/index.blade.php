@@ -10,27 +10,36 @@
         <div class='row'>
             <h1>Bill Splitter</h1>
             <div class='panel panel-default'>
+                <div class='col-sm-12'>
+                    <p class='warning'>* required fields</p>
+                </div>
                 <form method='GET' action='/calculate'>
                     <div class='panel-body form-horizontal payment-form'>
                         <div class='form-group required'>
-                            <label class='col-sm-6 control-label'>Split how many ways?</label>
+                            <label class='col-sm-6 control-label'>* Split how many ways?</label>
                             <div class='col-sm-3'>
                                 <input type='number'
                                        class='form-control' name='noOfPeople'
                                        required
                                        min='1'
-                                       value='{{ $noOfPeople or '1'}}'
+                                       max='100'
+                                       {{--                                       value='{{ old('noOfPeople') }}'--}}
+                                       value='{{ $noOfPeople }}'
                                 />
+                                @include('modules.error-field', ['field' => 'noOfPeople'])
                             </div>
-                            <label class='col-sm-6 control-label'>How much was the tab?</label>
+                            <label class='col-sm-6 control-label'>* How much was the tab?</label>
                             <div class='col-sm-3'>
                                 <input type='number'
                                        class='form-control' name='amount'
                                        required
                                        step='0.01'
                                        min='1'
-                                       value='{{ $amount or '1'}}'
+                                       {{--                                       value='{{ old('amount') }}'--}}
+                                       value='{{ $amount }}'
                                 />
+                                @include('modules.error-field', ['field' => 'amount'])
+
                             </div>
                         </div>
                         <label class='col-sm-6 control-label'>How was the service?</label>
@@ -49,27 +58,24 @@
                             <input type='checkbox'
                                    class='form-control'
                                    name='roundUp'
-                                   {{ ($roundUp) ? 'checked' : '' }}/><br/>
+                                    {{ ($roundUp) ? 'checked' : '' }}/><br/><br/>
                         </div>
-                        <div class='col-sm-12'>
-                            <p class='warning'>* required fields</p>
-                        </div>
-                        <div class='col-sm-4'></div> <!-- dirty way to center the button until I figure it out better way -->
-                        <div class='col-sm-4'>
-                            <input type='submit' value='Calculate' class='btn btn-primary brn-lg submitButton'/><br/>
+<!--                        <div class='col-sm-4'></div> <!-- dirty way to center the button until I figure it out better way -->
+                        <div class='col-sm-12 btn'>
+                            <input type='submit' name='calculate' value='Calculate' class='btn btn-primary brn-lg submitButton'/>
                         </div>
                     </div>
                 </form>
                 @if($results)
-                    <div class='col-sm-12 result'>
-                    @if ($noOfPeople > 1)
-                        <p>Everyone owes <em>${{ $results }}</em> each.</p>
-                    @else
-                        <p>You owe $<?= $results ?>.</p>
-                    @endif
+                    <div class='panel-body form-horizontal payment-form result'>
+                        @if ($noOfPeople > 1)
+                            <p>Everyone owes <em>${{ $results }}</em> each.</p>
+                        @else
+                            <p>You owe <em>${{ $results }}<em>.</p>
+                        @endif
                     </div>
                 @else
-                    <div class='col-sm-12 result'>
+                    <div class='panel-body form-horizontal payment-form result'>
                         <p>Please enter the total amount and how many ways to split!</p>
                     </div>
                 @endif
