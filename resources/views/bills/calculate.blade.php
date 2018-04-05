@@ -34,8 +34,7 @@
                                        required
                                        step='0.01'
                                        min='1'
-                                       {{--                                       value='{{ old('amount') }}'--}}
-                                       value='{{ $amount }}'
+                                       value= '{{ old('amount') ? old('amount') : $amount}}'
                                 />
                                 @include('modules.error-field', ['field' => 'amount'])
 

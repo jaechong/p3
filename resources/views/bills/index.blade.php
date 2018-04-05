@@ -21,9 +21,9 @@
                                 <input type='number'
                                        class='form-control' name='noOfPeople'
                                        required
-                                       min='1'
-                                       max='100'
-                                       value='{{ $noOfPeople }}'
+                                       value= '{{ old('noOfPeople') ? old('noOfPeople') : $noOfPeople}}'
+                                        {{--value='{{ old('noOfPeople') }}'--}}
+                                       {{--value='{{ $noOfPeople }}' --}}
                                 />
                                 @include('modules.error-field', ['field' => 'noOfPeople'])
                             </div>
@@ -33,8 +33,9 @@
                                        class='form-control' name='amount'
                                        required
                                        step='0.01'
-                                       min='1'
-                                       value='{{ $amount }}'
+                                       value= '{{ old('amount') ? old('amount') : $amount}}'
+                                       {{--value='{{ old('amount') }}'--}}
+                                       {{--value='{{ $amount }}'--}}
                                 />
                                 @include('modules.error-field', ['field' => 'amount'])
 

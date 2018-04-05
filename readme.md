@@ -18,7 +18,9 @@ CSCI E15 - Project 3
 <https://stackoverflow.com/questions/4919076/outline-effect-to-text>
 
 ## Notes for instructor
-Using Bootstrap classes, input on this site is mostly numeric and can be caught in client side.  Manually changed the numberic value range to in local code to check the server side error handling.
-Also, I wanted entered data to be still available after the form is submitted to be able to adjust the input even if the input data is all valid.  For that reason, I did not use Laravel helper [`old`](https://laravel.com/docs/helpers#method-old).  I added `Clear` button to clear the data manually if the user wants.
+Using html input attributes, input on this site is mostly numeric and can be caught in the client side validation.  I have listened to the Week 8 Validation video again and I noticed that I missed the last paragraph mentioning that although the client side validation is good, it is not expected to be used in our class or project.  So, I made the last minute changes to remove the client side validations.  Now I understand why I lost 5 marks in project 2 for using the client side validation.
+Also, I wanted the entered data to be available after the form is submitted to be able to adjust the input even if the input data is all valid.  For that reason, I added `Clear` button to clear the data manually if the user wants.
+Now, because of the last minute change to remove the client side validation and since I wanted to keep the entered data to be available to be updated, when the server side validation is done and fails, there is no changes to the page and may cause the page content to be out of sync.
+That is, for example, you calculated the amount to be splitted with valid data, it was designed to show the entered data to be available to be adjusted.  When the user adjusts and enter invalid input, the server side validation will just prompt the error message but the all other content of the page remains so that the answer shows the amount previously calculated.  It is better to update this for the next project.
 
 # p3
