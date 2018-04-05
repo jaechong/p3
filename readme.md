@@ -16,6 +16,8 @@ comments in blade.php
 https://stackoverflow.com/questions/27830200/laravel-blade-comments-blade-rendering-causing-page-to-crash
 two submit buttons in one form and have different actions
 https://stackoverflow.com/questions/20932543/laravel-4-two-submit-buttons-in-one-form-and-have-both-submits-to-be-handled-b
+title text outline to stand out from the background image
+https://stackoverflow.com/questions/4919076/outline-effect-to-text
 ## Notes for instructor
 
 # p3

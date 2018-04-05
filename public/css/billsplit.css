@@ -4,30 +4,32 @@ header {
 }
 
 #logo {
-  width: 10%  ;
-  color: white;
+    width: 10%;
 }
 
 h1 {
     text-align: center;
     font-size: 6.0rem;
-    color: black;
+    color: white;
     font-weight: bolder;
-    /*    outline-color: #0c5460;*/
-    stroke: black;
-    stroke-width: 2px;
-    outline-color: black;
-    outline-width: 2px;
+    text-shadow: -1px 01px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
 }
 
 body {
     background-image: url("/images/billsplit.jpg");
-/*    background-color: transparent; */
+    /*    background-color: transparent; */
     background-size: 50%;
 }
 
+.panel {
+    background-color: #b1dfbb;
+}
+
 .btn {
-    margin-top: 20px;
+    margin-top: 10px;
     text-align: center;
 }
 
@@ -67,9 +69,10 @@ body {
     font-weight: bolder;
     color: #0b2e13;
 }
+
 footer {
     text-align: center;
-    background-color: #eee;
+    background-color: #b1dfbb;
 
     /* sticky footer */
     position: absolute;

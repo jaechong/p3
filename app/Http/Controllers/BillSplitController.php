@@ -9,7 +9,6 @@ class BillSplitController extends Controller
 
     public function index(Request $request)
     {
-
         return view('bills.index')->with([
             'noOfPeople' => '',
             'amount' => '',
@@ -38,7 +37,8 @@ class BillSplitController extends Controller
         if ($roundUp) {
             $finalResult = ceil($result);
         } else {
-            $finalResult = round($result + 0.0049, 2);  # couldn't find ceil function with precision, add .0049 to round up
+            $finalResult = round($result + 0.0049, 2);  
+            # couldn't find ceil function with precision, add .0049 to round up
             # i.e. 1.001 -> 1.01, 1.0001 -> 1.01,
             # limitation: 1.00009 -> 1.00, but close enough
         }

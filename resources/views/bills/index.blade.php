@@ -23,7 +23,6 @@
                                        required
                                        min='1'
                                        max='100'
-                                       {{--                                       value='{{ old('noOfPeople') }}'--}}
                                        value='{{ $noOfPeople }}'
                                 />
                                 @include('modules.error-field', ['field' => 'noOfPeople'])
@@ -35,7 +34,6 @@
                                        required
                                        step='0.01'
                                        min='1'
-                                       {{--                                       value='{{ old('amount') }}'--}}
                                        value='{{ $amount }}'
                                 />
                                 @include('modules.error-field', ['field' => 'amount'])
@@ -44,7 +42,7 @@
                         </div>
                         <label class='col-sm-6 control-label'>How was the service?</label>
                         <div class='col-sm-3'>
-                            <select class='form-control' name='service' >
+                            <select class='form-control' name='service'>
                                 <option value='0' {{ ($service == '0') ? 'selected' : '' }} >No Tip Required</option>
                                 <option value='10' {{ ($service == '10') ? 'selected' : '' }} >Bad 10%</option>
                                 <option value='15' {{ ($service == '15') ? 'selected' : '' }} >Average 15%</option>
@@ -60,13 +58,20 @@
                                    name='roundUp'
                                     {{ ($roundUp) ? 'checked' : '' }}/><br/><br/>
                         </div>
-<!--                        <div class='col-sm-4'></div> <!-- dirty way to center the button until I figure it out better way -->
                         <div class='col-sm-12 btn'>
-                            <input type='submit' name='calculate' value='Calculate' class='btn btn-primary brn-lg submitButton'/>
+                            <input type='submit'
+                                   name='calculate'
+                                   value='Calculate'
+                                   class='btn btn-primary brn-lg submitButton'/>
                         </div>
                     </div>
                 </form>
                 @if($results)
+                    <form action='/' method='GET'>
+                        <div class='col-sm-12 btn'>
+                            <input type='submit' name='clear' value='Clear' class='btn btn-primary brn-lg'/>
+                        </div>
+                    </form>
                     <div class='panel-body form-horizontal payment-form result'>
                         @if ($noOfPeople > 1)
                             <p>Everyone owes <em>${{ $results }}</em> each.</p>
@@ -84,4 +89,3 @@
     </div>
 
 @endsection
-
