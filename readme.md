@@ -19,5 +19,6 @@ CSCI E15 - Project 3
 
 ## Notes for instructor
 Using Bootstrap classes, input on this site is mostly numeric and can be caught in client side.  Manually changed the numberic value range to in local code to check the server side error handling.
+Also, I wanted entered data to be still available after the form is submitted to be able to adjust the input even if the input data is all valid.  For that reason, I did not use Laravel helper [`old`](https://laravel.com/docs/helpers#method-old).  I added `Clear` button to clear the data manually if the user wants.
 
 # p3
